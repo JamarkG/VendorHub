@@ -19,9 +19,9 @@ const NavBar = () => {
         </div>
         <div id='CenterSpacer'>
         </div>
-        <div id='AuthDiv'>
+        <div className='AuthDiv'>
           {!user &&
-          <>
+          <div className='AuthDiv'>
             <div className='AuthButton' id='LoginButtonDiv'>
               <NavLink to="/login" exact={true} activeClassName="active">
                 Login
@@ -32,9 +32,9 @@ const NavBar = () => {
                 Sign Up
               </NavLink>
             </div>
-          </>}
+          </div>}
           {user &&
-          <>
+          <div className='AuthDiv'>
             <div>
               <NavLink to='/my-profile' exact={true} activeClassName="active">
                 My profile
@@ -43,7 +43,7 @@ const NavBar = () => {
             <div className='AuthButton' id='LogoutButtonDiv'>
               <LogoutButton />
             </div>
-          </>}
+          </div>}
         </div>
       </div>
     </nav>
