@@ -1,26 +1,47 @@
 
 #TopNavDiv {
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     display: flex;
     flex-direction: row;
-    }
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0px 0px 0px;
+    height: fit-content;
+}
 
 #LogoDiv {
-    width: 25%;
+    width: 35%;
+    height: fit-content;
+    margin: 5px 0px 0px 55px;
 }
 
 #CenterSpacer {
-    width: 50%
+    width: 40%
 }
 
-#AuthDiv {
+.AuthDiv {
     display: flex;
     flex-direction: row;
-    width: 25%
+    width: 25%;
+    height: 100%;
+    margin: 0px 0px 0px 0px;
+    align-items: center;
+    justify-content: center;
+    /* color: black; */
+    /* text-decoration: black; */
 }
 
 .AuthButton {
-    width: 33.3%;
-    height: 100%;
+    width: 50%;
     border: none;
+    margin: 0px 0px 0px 0px;
+    display: flex;
+    flex-direction: row;
+    /* text-decoration-thickness: 2px; */
+}
+
+#LoginLink {
+    color: black;
+    font-weight: 650;
+    letter-spacing: .3px;
 }

@@ -14,37 +14,30 @@ const NavBar = () => {
       <div id='TopNavDiv'>
         <div id='LogoDiv'>
           <NavLink to="/" exact={true} activeClassName="active">
-            <img border={0} alt="VendorHub Logo" src={logo} width="115" height="55" />
+            <img border={0} alt="VendorHub Logo" src={logo} width="175" height="55" />
           </NavLink>
         </div>
         <div id='CenterSpacer'>
         </div>
+        {!user &&
         <div className='AuthDiv'>
-          {!user &&
-          <div className='AuthDiv'>
-            <div className='AuthButton' id='LoginButtonDiv'>
-              <NavLink to="/login" exact={true} activeClassName="active">
-                Login
-              </NavLink>
-            </div>
-            <div className='AuthButton' id='SignUpButtonDiv'>
-              <NavLink to="/sign-up" exact={true} activeClassName="active">
-                Sign Up
-              </NavLink>
-            </div>
-          </div>}
-          {user &&
-          <div className='AuthDiv'>
-            <div>
-              <NavLink to='/my-profile' exact={true} activeClassName="active">
-                My profile
-              </NavLink>
-            </div>
-            <div className='AuthButton' id='LogoutButtonDiv'>
-              <LogoutButton />
-            </div>
-          </div>}
-        </div>
+          <div className='AuthButton'>
+            <NavLink to="/login" exact={true} activeClassName="active" style={{ textDecoration: 'none' }} id='LoginLink'>
+              Login
+            </NavLink>
+          </div>
+        </div>}
+        {user &&
+        <div className='AuthDiv'>
+          <div>
+            <NavLink to='/my-profile' exact={true} activeClassName="active" style={{ textDecoration: 'none' }}>
+              My profile
+            </NavLink>
+          </div>
+          <div className='AuthButton' id='LogoutButtonDiv'>
+            <LogoutButton />
+          </div>
+        </div>}
       </div>
     </nav>
   );
