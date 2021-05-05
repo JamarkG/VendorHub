@@ -26,11 +26,6 @@ const NavBar = () => {
               Login
             </NavLink>
           </div>
-          <div className='AuthButton'>
-            <NavLink to="/sign-up" exact={true} activeClassName="active" style={{ textDecoration: 'none' }} id='SignUpLink'>
-              Sign Up
-            </NavLink>
-          </div>
         </div>}
         {user &&
         <div className='AuthDiv'>

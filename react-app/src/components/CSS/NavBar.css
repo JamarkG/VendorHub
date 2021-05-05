@@ -12,7 +12,7 @@
 #LogoDiv {
     width: 35%;
     height: fit-content;
-    margin: 5px 0px 0px 25px;
+    margin: 5px 0px 0px 55px;
 }
 
 #CenterSpacer {
@@ -40,7 +40,8 @@
     /* text-decoration-thickness: 2px; */
 }
 
-#LoginLink, #SignUpLink {
+#LoginLink {
     color: black;
     font-weight: 650;
+    letter-spacing: .3px;
 }
