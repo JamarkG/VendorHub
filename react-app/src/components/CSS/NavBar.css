@@ -44,4 +44,6 @@
     color: black;
     font-weight: 650;
     letter-spacing: .3px;
+    border: none;
+    background-color: white;
 }

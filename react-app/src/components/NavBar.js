@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from 'react-modal';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import LoginForm from "./auth/LoginForm";
 import LogoutButton from './auth/LogoutButton';
+import User from "./User";
 import './CSS/NavBar.css';
 import logo from './images/VHLogo.png';
 
 const NavBar = () => {
 
   const user = useSelector(state => state.session.user)
+
+  const [loginModalRendering, setLoginModalRendering] = useState(false);
+  const [myProfileModalRendering, setMyProfileModalRendering] = useState(false);
+
+  const setMyProfileModalRenderingTrue = () => {
+    setMyProfileModalRendering(true)
+  }
+
+  const setMyProfileModalRenderingFalse = () => {
+    setMyProfileModalRendering(false)
+  }
+
+  const setLoginModalRenderingTrue = () => {
+      setLoginModalRendering(true)
+  };
+  const setLoginModalRenderingFalse = () => {
+      setLoginModalRendering(false)
+  };
 
   return (
     <nav>
@@ -22,17 +43,25 @@ const NavBar = () => {
         {!user &&
         <div className='AuthDiv'>
           <div className='AuthButton'>
-            <NavLink to="/login" exact={true} activeClassName="active" style={{ textDecoration: 'none' }} id='LoginLink'>
+            <button onClick={setLoginModalRenderingTrue} style={{ textDecoration: 'none' }} id='LoginLink'>
               Login
-            </NavLink>
+            </button>
+            <Modal isOpen={loginModalRendering} parentSelector={() => document.querySelector('#modalHolder')}>
+                <button onClick={setLoginModalRenderingFalse}>Close</button>
+                <LoginForm />
+            </Modal>
           </div>
         </div>}
         {user &&
         <div className='AuthDiv'>
           <div>
-            <NavLink to='/my-profile' exact={true} activeClassName="active" style={{ textDecoration: 'none' }}>
+            <button onClick={setMyProfileModalRenderingTrue} style={{ textDecoration: 'none' }}>
               My profile
-            </NavLink>
+            </button>
+            <Modal isOpen={myProfileModalRendering} parentSelector={() => document.querySelector('#modalHolder')}>
+                <button onClick={setMyProfileModalRenderingFalse}>Close</button>
+                <User />
+            </Modal>
           </div>
           <div className='AuthButton' id='LogoutButtonDiv'>
             <LogoutButton />

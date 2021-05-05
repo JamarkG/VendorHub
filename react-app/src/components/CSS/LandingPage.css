@@ -1,4 +1,4 @@
-#tryButtonDiv {
+#tryButton {
     background-color: rgb(252, 41, 59);
     border: none;
     width: 100px;
@@ -7,8 +7,8 @@
 }
 
 #tryButtonP {
-    margin: 20px 0px 0px 0px;
-    padding: 15px 45px 15px 45px;
+    /* margin: 20px 0px 0px 0px; */
+    padding: 2px 40px 2px 40px;
     /* textDecoration: none; */
     color: white;
 }

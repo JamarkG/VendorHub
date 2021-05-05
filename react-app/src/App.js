@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import LandingPage from "./components/LandingPage";
+import Search from "./components/Search"
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
 
@@ -15,6 +16,23 @@ function App() {
   // const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch()
   const [loaded, setLoaded] = useState(false);
+
+  const user = useSelector(state => state.session.user)
+  let userBool = (user) => {
+    if(user){
+      return true
+    } else {
+      return false
+    }
+  }
+
+  let userBoolFlip = (user) => {
+    if(user){
+      return false
+    } else {
+      return true
+    }
+  }
 
   useEffect(() => {
     (async() => {
@@ -31,12 +49,6 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path="/login" exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path="/sign-up" exact={true}>
-          <SignUpForm />
-        </Route>
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>
         </ProtectedRoute>
@@ -44,11 +56,9 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path="/" exact={true}>
-          <LandingPage/>
+          {userBoolFlip(user) && <LandingPage />}
+          {userBool(user) && <Search />}
         </Route>
-        <ProtectedRoute path="/" exact={true}>
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );
