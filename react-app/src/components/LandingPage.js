@@ -26,9 +26,16 @@ const LandingPage = () => {
                         <button onClick={setModalRenderingTrue} style={{ textDecoration: 'none' }} id='tryButton'>
                             <p id='tryButtonP'>Try it free</p>
                         </button>
-                        <Modal isOpen={modalRendering} parentSelector={() => document.querySelector('#modalHolder')}>
-                            <button onClick={setModalRenderingFalse}>Close</button>
-                            <SignUpForm />
+                        <Modal
+                        isOpen={modalRendering}
+                        onRequestClose={setModalRenderingFalse}
+                        // overlayClassName='modalHolder'
+                        parentSelector={() => document.querySelector('#root')}
+                        >
+                            <div>
+                                <SignUpForm />
+                                <button onClick={setModalRenderingFalse}>Close</button>
+                            </div>
                         </Modal>
                     </div>
                 </div>
