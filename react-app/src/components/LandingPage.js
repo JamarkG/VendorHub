@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import SignUpForm from "./auth/SignUpForm";
 import background from './images/VendorHubBackground.png';
 import './CSS/LandingPage.css';
@@ -19,7 +19,7 @@ const LandingPage = () => {
     return (
         <div id='modalHolder'>
             <div id='compHolderDiv'>
-                <img src={background} id='imgHolder'></img>
+                <img src={background} id='imgHolder' alt='VendorHub Background'></img>
                 <div id='landingTextButton'>
                     <h3>Simplify your vendor discovery</h3>
                     <div>

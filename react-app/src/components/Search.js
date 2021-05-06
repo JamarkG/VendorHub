@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Profiles from './Profiles.js'
 import './CSS/Search.css'
 
 
@@ -19,8 +20,8 @@ const Search = () => {
                     />
                     <button type="submit">Search</button>
                 </form>
-
             </div>
+            <Profiles />
         </div>
     )
 
