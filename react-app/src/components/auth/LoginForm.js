@@ -32,14 +32,13 @@ const LoginForm = () => {
   }
 
   return (
-    <div id='modalBackground'>
       <form onSubmit={onLogin} id='loginForm'>
         <div>
           {errors.map((error) => (
             <div>{error}</div>
           ))}
         </div>
-        <div>
+        <div className='inputDiv'>
           <label htmlFor="email">Email</label>
           <input
             name="email"
@@ -47,9 +46,10 @@ const LoginForm = () => {
             placeholder="Email"
             value={email}
             onChange={updateEmail}
+            className='textInput'
           />
         </div>
-        <div>
+        <div className='inputDiv'>
           <label htmlFor="password">Password</label>
           <input
             name="password"
@@ -57,11 +57,11 @@ const LoginForm = () => {
             placeholder="Password"
             value={password}
             onChange={updatePassword}
+            className='textInput'
           />
-        <button type="submit">Login</button>
+        <button type="submit" id='loginButton'>Login</button>
         </div>
       </form>
-    </div>
   );
 };
 

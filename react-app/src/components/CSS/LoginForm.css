@@ -1,8 +1,21 @@
 
-#modalBackground {
-    /* background-color: red; */
+.inputDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px 0px 0px;
 }
 
-/* #loginForm {
-    background-color: red;
-} */
+.textInput {
+    border: .2px solid rgb(216, 216, 216);
+    border-radius: 4px;
+}
+
+#loginButton {
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(5, 224, 42);
+    padding: 5px 14px 5px 14px;
+    margin: 20px 0px 0px 0px;
+}

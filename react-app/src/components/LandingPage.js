@@ -32,9 +32,8 @@ const LandingPage = () => {
                         // overlayClassName='modalHolder'
                         parentSelector={() => document.querySelector('#root')}
                         >
-                            <div>
+                            <div id='signUpFormDiv'>
                                 <SignUpForm />
-                                <button onClick={setModalRenderingFalse}>Close</button>
                             </div>
                         </Modal>
                     </div>
