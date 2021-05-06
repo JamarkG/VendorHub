@@ -1,3 +1,12 @@
+
+/* #modalHolder {
+    background-color: red;
+} */
+
+/* .modal__Content{
+    background-color: red;
+} */
+
 #tryButton {
     background-color: rgb(252, 41, 59);
     border: none;
@@ -23,7 +32,7 @@
 
 #landingTextButton {
     position: absolute;
-    top: 36%;
+    top: 26%;
     left: 18%;
     display: flex;
     flex-direction: column;
@@ -33,4 +42,9 @@
 #compHolderDiv {
     display: flex;
     object-fit: cover;
+
 }
+
+/* #signUpFormDiv {
+    border: 1px solid black;
+} */
