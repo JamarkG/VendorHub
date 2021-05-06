@@ -9,6 +9,8 @@ const LandingPage = () => {
 
     const [modalRendering, setModalRendering] = useState(false);
 
+    Modal.setAppElement('#root');
+
     const setModalRenderingTrue = () => {
         setModalRendering(true)
     };

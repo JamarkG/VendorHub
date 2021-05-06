@@ -11,6 +11,8 @@ const NavBar = () => {
 
   const user = useSelector(state => state.session.user)
 
+  Modal.setAppElement('#root');
+
   const [loginModalRendering, setLoginModalRendering] = useState(false);
   const [myProfileModalRendering, setMyProfileModalRendering] = useState(false);
 

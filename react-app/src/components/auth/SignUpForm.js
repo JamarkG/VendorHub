@@ -7,24 +7,39 @@ import '../CSS/SignupForm.css';
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [isVendor, setIsVendor] = useState("");
+  const [summary, setSummary] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password));
+      await dispatch(signUp(name, companyName, isVendor, summary, emailAddress, password));
     }
   };
 
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
+  const updateName = (e) => {
+    setName(e.target.value);
   };
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
+  const updateCompanyName = (e) => {
+    setCompanyName(e.target.value);
+  };
+
+  const updateSummary = (e) => {
+    setSummary(e.target.value);
+  };
+
+  const updateIsVendor = (e) => {
+    setIsVendor(e.target.value);
+  };
+
+  const updateEmailAddress = (e) => {
+    setEmailAddress(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -42,22 +57,51 @@ const SignUpForm = () => {
   return (
     <form onSubmit={onSignUp}>
       <div className='inputDiv'>
-        <label>User Name</label>
+        <label>Name</label>
         <input
           type="text"
-          name="username"
-          onChange={updateUsername}
-          value={username}
+          name="name"
+          onChange={updateName}
+          value={name}
           className='textInput'
         ></input>
+      </div>
+      <div className='inputDiv'>
+        <label>Company Name</label>
+        <input
+          type="text"
+          name="companyName"
+          onChange={updateCompanyName}
+          value={companyName}
+          className='textInput'
+        ></input>
+      </div>
+      <div className='inputDiv'>
+        <label>Are you a vendor?</label>
+        <input
+          type="checkbox"
+          name="isVendor"
+          onChange={updateIsVendor}
+          value={isVendor}
+          className='textInput'
+        ></input>
+      </div>
+      <div className='inputDiv'>
+        <label>Summary</label>
+        <textarea
+          name="summary"
+          onChange={updateSummary}
+          value={summary}
+          className='textInput'
+        ></textarea>
       </div>
       <div className='inputDiv'>
         <label>Email</label>
         <input
           type="text"
-          name="email"
-          onChange={updateEmail}
-          value={email}
+          name="emailAddress"
+          onChange={updateEmailAddress}
+          value={emailAddress}
           className='textInput'
         ></input>
       </div>
