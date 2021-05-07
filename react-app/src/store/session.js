@@ -75,6 +75,7 @@ export const signUp = (name, companyName, isVendor, summary, emailAddress, passw
         }),
     });
     const data = await response.json();
+    console.log(data);
     dispatch(setUser(data));
 }
 
@@ -94,6 +95,26 @@ export const updateProfile = (name, companyName, isVendor, summary, emailAddress
         }),
     });
     const data = await response.json();
+    dispatch(setUser(data));
+}
+
+export const sendMeetingReq = (name, companyName, isVendor, summary, emailAddress, password) => async (dispatch)=> {
+    const response = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name,
+            companyName,
+            isVendor,
+            summary,
+            emailAddress,
+            password
+        }),
+    });
+    const data = await response.json();
+    console.log(data);
     dispatch(setUser(data));
 }
 
