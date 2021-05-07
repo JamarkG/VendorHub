@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 // import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import '../CSS/SignupForm.css';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.session.user);
+  // const user = useSelector(state => state.session.user);
 
   const [name, setName] = useState("");
   const [companyName, setCompanyName] = useState("");
-  const [isVendor, setIsVendor] = useState("");
+  const [isVendor, setIsVendor] = useState(false);
   const [summary, setSummary] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
@@ -35,8 +35,12 @@ const SignUpForm = () => {
     setSummary(e.target.value);
   };
 
-  const updateIsVendor = (e) => {
-    setIsVendor(e.target.value);
+  const updateIsVendor = () => {
+    if (isVendor){
+      setIsVendor(false)
+    } else {
+      setIsVendor(true);
+    }
   };
 
   const updateEmailAddress = (e) => {
@@ -50,6 +54,8 @@ const SignUpForm = () => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
+
+  // console.log(isVendor)
 
   return (
     <form onSubmit={onSignUp}>
