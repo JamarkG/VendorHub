@@ -8,19 +8,19 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
   const [errors, setErrors] = useState([]);
-  const [email, setEmail] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(login(emailAddress, password));
     if (data.errors) {
       setErrors(data.errors);
     }
   };
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
+  const updateEmailAddress = (e) => {
+    setEmailAddress(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -41,11 +41,11 @@ const LoginForm = () => {
         <div className='inputDiv'>
           <label htmlFor="email">Email</label>
           <input
-            name="email"
+            name="emailAddress"
             type="text"
             placeholder="Email"
-            value={email}
-            onChange={updateEmail}
+            value={emailAddress}
+            onChange={updateEmailAddress}
             className='textInput'
           />
         </div>

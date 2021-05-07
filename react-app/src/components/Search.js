@@ -13,12 +13,13 @@ const Search = () => {
     return (
         <div id='modalHolder'>
             <div id='searchDiv'>
-                <form action="/" method="get" id='searchForm'>
+                <form action="/" method="get">
                     <input
                         type="text"
-                        placeholder="Search the database"
+                        placeholder="  Search the database"
+                        id='searchInput'
                     />
-                    <button type="submit">Search</button>
+                    <button type="submit" id='searchButton'>Search</button>
                 </form>
             </div>
             <Profiles />

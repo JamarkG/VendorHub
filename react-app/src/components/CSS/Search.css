@@ -1,26 +1,27 @@
-/* div, body {
-    display: flex;
-} */
+
 
 #modalHolder {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* height: 300px;
-    width: 300px; */
 
 }
 
 #searchDiv {
     margin: 50px 0px 0px 0px;
 }
-/*
-#searchForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
-    width: 300px;
-} */
+
+#searchInput {
+    width: 200px;
+    border: .5px solid rgb(204, 204, 204);
+    border-radius: 4px;
+}
+
+#searchButton {
+    border: 1px solid rgb(127, 73, 252);
+    border-radius: 4px;
+    background-color: rgb(134, 69, 253);
+    width: 56px;
+    color: white;
+}
