@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
-import { useParams } from "react-router-dom";
 import LogoutButton from './auth/LogoutButton';
+import SignUpForm from './auth/SignUpForm.js'
 import './CSS/User.css'
 
 function User() {
   const [user, setUser] = useState({});
-  // Notice we use useParams here instead of getting the params
-  // From props.
-  const userInfo = useSelector(state => state.session.user)
 
-  const userId  = userInfo.id;
+  const userCurrent = useSelector(state => state.session.user)
+
+  const userId  = userCurrent.id;
 
   useEffect(() => {
     if (!userId) {
@@ -18,8 +17,8 @@ function User() {
     }
     (async () => {
       const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
+      const userInfo = await response.json();
+      setUser(userInfo);
     })();
   }, [userId]);
 
@@ -29,15 +28,7 @@ function User() {
 
   return (
     <div id='profileInfoDivTop'>
-      <div className='profileInfoDiv'>
-        <strong>User Id</strong> <p>{userId}</p>
-      </div>
-      <div className='profileInfoDiv'>
-        <strong>Username</strong> <p>{user.username}</p>
-      </div>
-      <div className='profileInfoDiv'>
-        <strong>Email</strong> <p>{user.email}</p>
-      </div>
+      <SignUpForm />
       <div className='AuthButton' id='LogoutButtonDiv'>
         <LogoutButton />
       </div>

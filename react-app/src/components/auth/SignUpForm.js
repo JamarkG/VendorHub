@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import '../CSS/SignupForm.css';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
+
   const [name, setName] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [isVendor, setIsVendor] = useState("");
@@ -49,10 +50,6 @@ const SignUpForm = () => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
-
-  if (user) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <form onSubmit={onSignUp}>

@@ -33,7 +33,36 @@ const LandingPage = () => {
                         onRequestClose={setModalRenderingFalse}
                         // overlayClassName='modalHolder'
                         parentSelector={() => document.querySelector('#root')}
-                        >
+                        style={
+                            { overlay: {
+                              position: "fixed",
+                              height: "100%",
+                              top: 0,
+                              left: 0,
+                              right: 0,
+                              bottom: 0,
+                              backgroundColor: "rgba(121, 125, 255, 0.9)"
+                            },
+                            content: {
+                              position: "absolute",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              width: '160px',
+                              height: "fit-content",
+                              top: "100px",
+                              left: "44%",
+                              bottom: "40px",
+                              border: "1px solid #ccc",
+                              background: "#fff",
+                              overflow: "auto",
+                              WebkitOverflowScrolling: "touch",
+                              borderRadius: "4px",
+                              outline: "none",
+                              padding: "20px",
+                              boxShadow: "inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 2px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3)"
+                            }
+                          }}>
                             <div id='signUpFormDiv'>
                                 <SignUpForm />
                             </div>
