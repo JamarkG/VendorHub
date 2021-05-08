@@ -19,6 +19,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
+      console.log(isVendor)
       await dispatch(signUp(name, companyName, isVendor, summary, emailAddress, password));
     }
   };

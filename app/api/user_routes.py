@@ -1,6 +1,8 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, session, request
 from flask_login import login_required
-from app.models import User
+from app.models import db, User, Meeting
+from app.forms import MeetingForm
+from .auth_routes import validation_errors_to_error_messages
 
 user_routes = Blueprint('users', __name__)
 
@@ -18,3 +20,23 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+
+@user_routes.route('/sendMeetingReq', methods=['POST'])
+@login_required
+def send_meeting_req():
+    """
+    Creates a new meeting
+    """
+    form = MeetingForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    meeting = Meeting(
+        sendUserId=form.data['sendUserId'],
+        recUserId=form.data['recUserId'],
+        message=form.data['message'],
+        accepted=False
+    )
+    db.session.add(meeting)
+    db.session.commit()
+    return meeting.to_dict()
+    # return {'errors': validation_errors_to_error_messages(form.errors)}, 401

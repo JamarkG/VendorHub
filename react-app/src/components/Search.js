@@ -25,16 +25,19 @@ const Search = () => {
         setModalRendering(false)
     };
 
+    let userCount = 0;
 
     useEffect(() => {
         if (!userId) {
-          return
+            return
         }
         async function fetchData() {
-          const response = await fetch(`/api/users/`);
-          const profObj = await response.json();
-          const userArr = profObj.users;
-          console.log(userArr)
+            const response = await fetch(`/api/users/`);
+            const profObj = await response.json();
+            const userArr = profObj.users;
+            userCount = userArr.length;
+            console.log(userCount)
+        //   console.log(userArr)
           setProfiles(userArr);
           setSearchResults(userArr);
         };
@@ -91,7 +94,8 @@ const Search = () => {
                         // overlayClassName='modalHolder'
                         parentSelector={() => document.querySelector('#root')}
                         style={
-                            { overlay: {
+                          {
+                            overlay: {
                               position: "fixed",
                               height: "100%",
                               top: 0,
@@ -105,7 +109,7 @@ const Search = () => {
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
-                              width: '160px',
+                              width: '260px',
                               height: "fit-content",
                               top: "100px",
                               left: "44%",
@@ -119,9 +123,10 @@ const Search = () => {
                               padding: "20px",
                               boxShadow: "inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 2px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3)"
                             }
-                          }}>
-                              <MeetingForm />
-                          </Modal>
+                          }}
+                          >
+                        <MeetingForm recUserId={profile.id} recName={profile.name} recCompanyName={profile.companyName} />
+                    </Modal>
                 </div>
             ))}
             </div>
