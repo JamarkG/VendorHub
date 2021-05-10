@@ -25,6 +25,7 @@ p {
     padding: 8px;
     overflow: auto;
     background-color: rgb(255, 250, 250);
+    font-family: Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 #reqMeetingButton {

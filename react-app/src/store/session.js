@@ -83,7 +83,7 @@ export const signUp = (name, companyName, isVendor, summary, emailAddress, passw
 
 export const updateProfile = (name, companyName, isVendor, summary, emailAddress, password) => async (dispatch)=> {
     const response = await fetch("/api/auth/updateprofile", {
-        method: "PUT",
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json",
         },

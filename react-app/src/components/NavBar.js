@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LoginForm from "./auth/LoginForm";
-import User from "./User";
+import UpdateProfileForm from "./auth/UpdateProfileForm.js";
 import './CSS/NavBar.css';
 import logo from './images/VHLogo.png';
 
@@ -112,7 +112,7 @@ const NavBar = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                width: '160px',
+                width: '30%',
                 height: "fit-content",
                 top: "100px",
                 left: "44%",
@@ -127,7 +127,7 @@ const NavBar = () => {
                 boxShadow: "inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 2px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3)"
               }
             }}>
-                <User />
+                <UpdateProfileForm />
             </Modal>
           </div>
         </div>}

@@ -6,10 +6,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 #searchDiv {
     margin: 50px 0px 0px 0px;
+    font-family: Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 #searchInput {
@@ -37,4 +39,5 @@
     grid-auto-columns: minmax(100px, auto);
     gap: 10px;
     margin: 25px 20px 30px 20px;
+    font-family: Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 }

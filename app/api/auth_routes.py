@@ -79,7 +79,7 @@ def sign_up():
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@auth_routes.route('/updateprofile', methods=['PUT'])
+@auth_routes.route('/updateprofile', methods=['PATCH'])
 def update_profile():
     """
     Updates a user profile and keeps them logged in
@@ -95,7 +95,8 @@ def update_profile():
             emailAddress=form.data['emailAddress'],
             password=form.data['password']
         )
-        db.session.commit(user)
+        db.session.add(user)
+        db.session.commit()
         login_user(user)
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
