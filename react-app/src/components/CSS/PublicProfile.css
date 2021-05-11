@@ -18,7 +18,7 @@ p {
 #singleProfileDiv {
     /* border: 1px solid gray; */
     border-radius: 7px;
-    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 1px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3);
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 1px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3); /* with help from mozilla developer network documents for box-shadow */
     width: 80%;
     height: 200px;
     display: flex;

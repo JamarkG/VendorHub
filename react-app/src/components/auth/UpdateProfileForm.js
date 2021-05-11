@@ -10,7 +10,7 @@ const UpdateProfileForm = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     // const meetings = user.meetings
-    console.log(user.sentMeetings)
+    console.log(user)
 
     const [name, setName] = useState(user.name);
     const [companyName, setCompanyName] = useState(user.companyName);
@@ -65,12 +65,22 @@ const UpdateProfileForm = () => {
         <div id='updateProfileDiv'>
             <div id='meetingsDiv'>
                 <h3 className='topLabel'>My meetings</h3>
+                <h5 className='typeRequestLabel'>Received Requests</h5>
+                {user.receivedMeetings?.map((receivedMeeting, i) => (
+                    <div className='oneMeetingDiv' key={i}>
+                        <h4 className='meetingMessage'>{receivedMeeting.message}</h4>
+                        {/* <p>{sentMeeting.name}</p> */}
+                        {receivedMeeting.accepted && <p id='acceptedMeeting'><em>Congrats! Meeting accepted.</em></p>}
+                        {!receivedMeeting.accepted && <p className='acceptedBoolText'><em>Waiting to be accepted.</em></p>}
+                    </div>
+                ))}
+                <h5 className='typeRequestLabel'>Sent Requests</h5>
                 {user.sentMeetings?.map((sentMeeting, i) => (
                     <div className='oneMeetingDiv' key={i}>
                         <h4 className='meetingMessage'>{sentMeeting.message}</h4>
                         {/* <p>{sentMeeting.name}</p> */}
-                        {sentMeeting.accepted && <p className='acceptedBoolText'><em>Congrats! Meeting accepted.</em></p>}
-                        {!sentMeeting.accepted && <p className='acceptedBoolText'>Waiting to be accepted.</p>}
+                        {sentMeeting.accepted && <p id='acceptedMeeting'><em>Congrats! Meeting accepted.</em></p>}
+                        {!sentMeeting.accepted && <p className='acceptedBoolText'><em>Waiting to be accepted.</em></p>}
                     </div>
                 ))}
             </div>

@@ -66,8 +66,9 @@ const NavBar = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                width: '60%',
-                height: "100px",
+                width: '200px',
+                height: "160px",
+                // width: "22%",
                 top: "100px",
                 left: "42%",
                 bottom: "40px",
@@ -77,7 +78,7 @@ const NavBar = () => {
                 WebkitOverflowScrolling: "touch",
                 borderRadius: "4px",
                 outline: "none",
-                padding: "20px",
+                padding: "10px",
                 boxShadow: "inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 2px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3)"
               }
             }}>
@@ -91,7 +92,7 @@ const NavBar = () => {
         <div className='AuthDiv'>
           <div>
             <button onClick={setMyProfileModalRenderingTrue} style={{ textDecoration: 'none' }} id='myProfileButton'>
-              My profile
+              Profile
             </button>
             <Modal
             isOpen={myProfileModalRendering}
@@ -112,7 +113,7 @@ const NavBar = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                width: '60%',
+                width: '550px',
                 height: "50%",
                 top: "100px",
                 left: "20%",
