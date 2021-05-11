@@ -73,7 +73,7 @@ const PublicProfile = (oneProfile) => {
                             }
                           }}
                           >
-                        <MeetingForm recUserId={profile.id} recName={profile.name} recCompanyName={profile.companyName} />
+                        <MeetingForm recUserId={profile.id} recName={profile.name} recCompanyName={profile.companyName} setModalRendering={setModalRendering} />
                     </Modal>
                 </div>
     )

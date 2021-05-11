@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMeetingReq } from '../store/session.js';
 import './CSS/MeetingForm.css'
 
 const MeetingForm = (props) =>{
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
     const user = useSelector(state => state.session.user);
     const sendUserId = user.id;
     const recUserId = props.recUserId;
     const accepted = false;
     const recName = props.recName;
     const recCompanyName = props.recCompanyName;
+    const setModalRendering = props.setModalRendering
 
     // console.log('heeeeeeeeeres user', user)
 
@@ -22,9 +23,11 @@ const MeetingForm = (props) =>{
         setMessage(e.target.value);
     };
 
-    const submitMeetingReq = () => {
+    const submitMeetingReq = (e) => {
+        e.preventDefault()
         dispatch(sendMeetingReq(sendUserId, recUserId, message, accepted));
-        history.push("/");
+        setModalRendering(false)
+        // history.push("/");
     };
 
     return (
