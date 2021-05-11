@@ -116,7 +116,7 @@ const NavBar = () => {
                 width: '550px',
                 height: "57%",
                 top: "100px",
-                left: "20%",
+                left: "30%",
                 bottom: "40px",
                 border: "1px solid #ccc",
                 background: "#fff",

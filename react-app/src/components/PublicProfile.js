@@ -10,8 +10,6 @@ const PublicProfile = (oneProfile) => {
     const [modalRendering, setModalRendering] = useState(false);
 
     const profile = oneProfile.oneProfile
-    // console.log('proooofffffiiiillllleeeeeee', profile)
-
 
     Modal.setAppElement('#root');
 

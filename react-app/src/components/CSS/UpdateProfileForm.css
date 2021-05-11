@@ -34,6 +34,7 @@
     align-items: center;
     justify-content: center;
     margin: 9px 0px 13px 0px;
+    font-size: 17px;
 }
 
 .typeRequestLabel {
@@ -89,6 +90,7 @@
     border-radius: 4px;
     height: 20px;
     width: 90%;
+    font-size: 12px;
 }
 
 .updateAreaInput {
@@ -96,11 +98,12 @@
     border-radius: 4px;
     height: 75px;
     width: 90%;
+    font-size: 12px;
     font-family: Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 .inputDivLabel {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 #updateProfButton {
@@ -115,11 +118,4 @@
 .oneMeetingDiv {
     /* margin: 4px 0px 0px 0px; */
     padding: 6px 0px 0px 0px;
-}
-
-.LogoutButtonDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0px 10px 0px;
 }
