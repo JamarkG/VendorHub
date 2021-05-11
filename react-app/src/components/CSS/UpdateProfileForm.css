@@ -6,6 +6,7 @@
     justify-content: center;
     height: 100%;
     width: 100%;
+    padding: 15px 0px 0px 0px;
 }
 
 #updateProfileDiv {
@@ -17,6 +18,15 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+#meetingsDiv {
+    width: 35%;
+    height: 100%;
+    max-height: 100%;
+    overflow: scroll;
+    padding: 0px 40px 0px 40px;
+    border-right: .5px solid rgb(211, 211, 211);
 }
 
 .topLabel {
@@ -101,15 +111,6 @@
     margin: 4px 0px 10px 0px;
 }
 
-#meetingsDiv {
-    width: 35%;
-    height: 100%;
-    max-height: 100%;
-    overflow: scroll;
-    padding: 0px 40px 0px 40px;
-    border-right: .5px solid rgb(211, 211, 211);
-
-}
 
 .oneMeetingDiv {
     /* margin: 4px 0px 0px 0px; */

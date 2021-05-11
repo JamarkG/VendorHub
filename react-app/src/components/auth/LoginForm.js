@@ -12,6 +12,16 @@ const LoginForm = () => {
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
 
+  const runDemo = async (e) => {
+    e.preventDefault();
+    let emailAddress = "demo@aa.io"
+    let password = "password"
+    const data = await dispatch(login(emailAddress, password));
+    if (data.errors) {
+      setErrors(data.errors);
+    }
+  }
+
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(emailAddress, password));
@@ -33,6 +43,7 @@ const LoginForm = () => {
   }
 
   return (
+    <div id='loginHolderDiv'>
       <form onSubmit={onLogin} id='loginForm'>
         <div>
           {errors.map((error) => (
@@ -64,6 +75,8 @@ const LoginForm = () => {
         <button type="submit" id='loginButton'>Login</button>
         </div>
       </form>
+      <button onClick={runDemo} id='demoButton'>Use a Demo</button>
+    </div>
   );
 };
 

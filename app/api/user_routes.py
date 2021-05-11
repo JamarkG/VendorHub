@@ -1,8 +1,9 @@
 from flask import Blueprint, jsonify, session, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import db, User, Meeting
 from app.forms import MeetingForm
 from .auth_routes import validation_errors_to_error_messages
+from sqlalchemy import and_
 
 user_routes = Blueprint('users', __name__)
 
@@ -10,7 +11,7 @@ user_routes = Blueprint('users', __name__)
 @user_routes.route('/')
 @login_required
 def users():
-    users = User.query.all()
+    users = User.query.filter(and_(User.id != current_user.id, User.isVendor != current_user.isVendor)).all()
     # print(users)
     return {"users": [user.to_dict() for user in users]}
 
