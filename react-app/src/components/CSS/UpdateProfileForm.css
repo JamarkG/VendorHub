@@ -1,4 +1,50 @@
 
+#topUpdateDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+#updateProfileDiv {
+    height: 100%;
+    /* max-height: 300px; */
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.topLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 9px 0px 3px 0px;
+}
+
+h4, .meetingMessage {
+    font-size: 12px;
+    margin: 5px 0px 1px 0px;
+    padding: 0px
+}
+
+.acceptedBoolText {
+    font-size: 12px;
+    margin: 0px 0px 3px 0px;
+    padding: 0px
+}
+
+#updateForm {
+    width: 30%;
+    max-height: 100%;
+    overflow: scroll;
+    margin: 0px 10px 0px 10px;
+    padding: 0px 40px 0px 20px;
+}
 
 .inputDiv {
     display: flex;
@@ -13,15 +59,19 @@
     border: .2px solid rgb(216, 216, 216);
     border-radius: 4px;
     height: 20px;
-    width: 100%;
+    width: 90%;
 }
 
 .updateAreaInput {
     border: .2px solid rgb(216, 216, 216);
     border-radius: 4px;
     height: 75px;
-    width: 100%;
+    width: 90%;
     font-family: Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.inputDivLabel {
+    font-size: 14px;
 }
 
 #updateProfButton {
@@ -29,4 +79,26 @@
     border-radius: 4px;
     background-color: rgb(5, 224, 42);
     padding: 5px 14px 5px 14px;
+}
+
+#meetingsDiv {
+    width: 35%;
+    height: 100%;
+    max-height: 100%;
+    overflow: scroll;
+    padding: 0px 20px 0px 40px;
+    border-right: .5px solid rgb(211, 211, 211);
+
+}
+
+.oneMeetingDiv {
+    /* margin: 4px 0px 0px 0px; */
+    padding: 10px 0px 0px 0px;
+}
+
+.LogoutButtonDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px 10px 0px;
 }

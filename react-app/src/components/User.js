@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
-import LogoutButton from './auth/LogoutButton';
 import SignUpForm from './auth/SignUpForm.js'
 import './CSS/User.css'
 
@@ -29,9 +28,6 @@ function User() {
   return (
     <div id='profileInfoDivTop'>
       <SignUpForm />
-      <div className='AuthButton' id='LogoutButtonDiv'>
-        <LogoutButton />
-      </div>
     </div>
   );
 }

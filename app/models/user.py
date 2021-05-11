@@ -1,6 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from app.models import Meeting
 
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
@@ -12,6 +13,8 @@ class User(db.Model, UserMixin):
   summary = db.Column(db.String(500), nullable = False)
   emailAddress = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
+  sentMeetings = db.relationship("Meeting", foreign_keys = [Meeting.sendUserId], back_populates = "sendingUser")
+  receivedMeetings = db.relationship("Meeting", foreign_keys = [Meeting.recUserId], back_populates = "receivingUser")
 
 
   @property
@@ -35,5 +38,7 @@ class User(db.Model, UserMixin):
       "companyName": self.companyName,
       "isVendor": self.isVendor,
       "summary": self.summary,
-      "emailAddress": self.emailAddress
+      "emailAddress": self.emailAddress,
+      "sentMeetings": [meeting.to_dict() for meeting in self.sentMeetings],
+      "receivedMeetings": [meeting.to_dict() for meeting in self.receivedMeetings]
     }

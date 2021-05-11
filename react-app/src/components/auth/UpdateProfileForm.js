@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { Redirect } from 'react-router-dom';
 import { updateProfile } from '../../store/session';
+import LogoutButton from './LogoutButton';
 import '../CSS/UpdateProfileForm.css';
+
 
 const UpdateProfileForm = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-
-    console.log(user)
+    // const meetings = user.meetings
+    console.log(user.sentMeetings)
 
     const [name, setName] = useState(user.name);
     const [companyName, setCompanyName] = useState(user.companyName);
@@ -58,85 +60,104 @@ const UpdateProfileForm = () => {
         setRepeatPassword(e.target.value);
     };
 
-    return <form onSubmit={onUpdate}>
-            <div className='inputDiv'>
-                <label>Name</label>
-                <input
-                type="text"
-                name="name"
-                onChange={updateName}
-                value={name}
-                className='updateInput'
-                placeholder={user.name}
-                ></input>
+    return (
+    <div id='topUpdateDiv'>
+        <div id='updateProfileDiv'>
+            <div id='meetingsDiv'>
+                <h3 className='topLabel'>My meetings</h3>
+                {user.sentMeetings?.map((sentMeeting, i) => (
+                    <div className='oneMeetingDiv' key={i}>
+                        <h4 className='meetingMessage'>{sentMeeting.message}</h4>
+                        {/* <p>{sentMeeting.name}</p> */}
+                        {sentMeeting.accepted && <p className='acceptedBoolText'><em>Congrats! Meeting accepted.</em></p>}
+                        {!sentMeeting.accepted && <p className='acceptedBoolText'>Waiting to be accepted.</p>}
+                    </div>
+                ))}
             </div>
-            <div className='inputDiv'>
-                <label>Company Name</label>
-                <input
-                type="text"
-                name="companyName"
-                onChange={updateCompanyName}
-                value={companyName}
-                className='updateInput'
-                placeholder={user.companyName}
-                ></input>
-            </div>
-            <div className='inputDiv'>
-                <label>Are you a vendor?</label>
-                <input
-                type="checkbox"
-                name="isVendor"
-                onChange={updateIsVendor}
-                value={isVendor}
-                placeholder={vendorBooltoString(user.isVendor)}
-                ></input>
-            </div>
-            <div className='inputDiv'>
-                <label>Summary</label>
-                <textarea
-                name="summary"
-                onChange={updateSummary}
-                value={summary}
-                className='updateAreaInput'
-                placeholder={user.summary}
-                ></textarea>
-            </div>
-            <div className='inputDiv'>
-                <label>Email</label>
-                <input
-                type="text"
-                name="emailAddress"
-                onChange={updateEmailAddress}
-                value={emailAddress}
-                className='updateInput'
-                placeholder={user.emailAddress}
-                ></input>
-            </div>
-            <div className='inputDiv'>
-                <label>Password</label>
-                <input
-                type="password"
-                name="password"
-                onChange={updatePassword}
-                value={password}
-                className='updateInput'
-                ></input>
-            </div>
-            <div className='inputDiv'>
-                <label>Repeat Password</label>
-                <input
-                type="password"
-                name="repeat_password"
-                onChange={updateRepeatPassword}
-                value={repeatPassword}
-                required={true}
-                className='updateInput'
-                ></input>
-            </div>
-            <div className='inputDiv'>
-                <button type="submit" id='updateProfButton'>Update my profile</button>
-            </div>
-        </form>;
+            <form onSubmit={onUpdate} id='updateForm'>
+                <h3 className='topLabel'>Edit profile</h3>
+                <div className='inputDiv'>
+                    <label className='inputDivLabel'>Name</label>
+                    <input
+                    type="text"
+                    name="name"
+                    onChange={updateName}
+                    value={name}
+                    className='updateInput'
+                    placeholder={user.name}
+                    ></input>
+                </div>
+                <div className='inputDiv'>
+                    <label className='inputDivLabel'>Company Name</label>
+                    <input
+                    type="text"
+                    name="companyName"
+                    onChange={updateCompanyName}
+                    value={companyName}
+                    className='updateInput'
+                    placeholder={user.companyName}
+                    ></input>
+                </div>
+                <div className='inputDiv'>
+                    <label className='inputDivLabel'>Are you a vendor?</label>
+                    <input
+                    type="checkbox"
+                    name="isVendor"
+                    onChange={updateIsVendor}
+                    value={isVendor}
+                    placeholder={vendorBooltoString(user.isVendor)}
+                    ></input>
+                </div>
+                <div className='inputDiv'>
+                    <label className='inputDivLabel'>Summary</label>
+                    <textarea
+                    name="summary"
+                    onChange={updateSummary}
+                    value={summary}
+                    className='updateAreaInput'
+                    placeholder={user.summary}
+                    ></textarea>
+                </div>
+                <div className='inputDiv'>
+                    <label className='inputDivLabel'>Email</label>
+                    <input
+                    type="text"
+                    name="emailAddress"
+                    onChange={updateEmailAddress}
+                    value={emailAddress}
+                    className='updateInput'
+                    placeholder={user.emailAddress}
+                    ></input>
+                </div>
+                <div className='inputDiv'>
+                    <label className='inputDivLabel'>Password</label>
+                    <input
+                    type="password"
+                    name="password"
+                    onChange={updatePassword}
+                    value={password}
+                    className='updateInput'
+                    ></input>
+                </div>
+                <div className='inputDiv'>
+                    <label className='inputDivLabel'>Repeat Password</label>
+                    <input
+                    type="password"
+                    name="repeat_password"
+                    onChange={updateRepeatPassword}
+                    value={repeatPassword}
+                    required={true}
+                    className='updateInput'
+                    ></input>
+                </div>
+                <div className='inputDiv'>
+                    <button type="submit" id='updateProfButton'>Update my profile</button>
+                </div>
+            </form>
+        </div>
+        <LogoutButton />
+    </div>
+        );
 }
 
 export default UpdateProfileForm;

@@ -45,15 +45,9 @@ const Search = () => {
     }, []);
 
 
-    // const vendorBooltoString = (bool) => {
-    //     if (bool){ return 'Vendor' }
-    //     else { return 'Buyer' }
-    // };
-
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value)
     };
-
 
     useEffect(() => {
         let results = profiles.filter(profile =>
@@ -77,11 +71,11 @@ const Search = () => {
                         id='searchInput'
                         onChange={handleSearchChange}
                     />
-                    <button type="submit" id='searchButton'>Search</button>
+                    {/* <button type="submit" id='searchButton'>Search</button> */}
                 </form>
             </div>
             <div id='profilesDiv'>
-            {searchResults.map((profile, i) => (  // removed index i as arg
+            {searchResults.map((profile, i) => (
                 <PublicProfile oneProfile={profile} key={i} />
             ))}
             </div>
