@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+from app.models import User, Meeting, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from app.forms import UpdateForm
@@ -43,7 +43,14 @@ def login():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.emailAddress == form.data['emailAddress']).first()
         login_user(user)
-        return user.to_dict()
+        userObj = user.to_dict()
+        # userObj['meetings'] = []
+        # meetings = Meeting.query.filter(Meeting.sendUserId == userObj['id']).all()
+        # # print(meetings, 'HERE IS THE MEEEEETING')
+        # for oneMeeting in meetings:
+        #     meetingDict = oneMeeting.to_dict()
+        #     userObj['meetings'].append(meetingDict)
+        return userObj
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
@@ -87,15 +94,15 @@ def update_profile():
     form = UpdateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        user = User(
-            name=form.data['name'],
-            companyName=form.data['companyName'],
-            isVendor=form.data['isVendor'],
-            summary=form.data['summary'],
-            emailAddress=form.data['emailAddress'],
-            password=form.data['password']
-        )
-        db.session.add(user)
+        id = current_user.id
+        user = User.query.filter(User.id == id).first()
+        user.name=form.data['name']
+        user.companyName=form.data['companyName']
+        user.isVendor=form.data['isVendor']
+        user.summary=form.data['summary']
+        user.emailAddress=form.data['emailAddress']
+        user.password=form.data['password']
+
         db.session.commit()
         login_user(user)
         return user.to_dict()

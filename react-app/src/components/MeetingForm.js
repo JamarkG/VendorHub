@@ -9,11 +9,10 @@ const MeetingForm = (props) =>{
     const sendUserId = user.id;
     const recUserId = props.recUserId;
     const accepted = false;
-
     const recName = props.recName;
     const recCompanyName = props.recCompanyName;
 
-    console.log('heeeeeeeeeres props', props)
+    // console.log('heeeeeeeeeres user', user)
 
     const [message, setMessage] = useState("");
 
@@ -21,9 +20,8 @@ const MeetingForm = (props) =>{
         setMessage(e.target.value);
     };
 
-    const submitMeetingReq = async () => {
-        // e.preventDefault();
-        await dispatch(sendMeetingReq(sendUserId, recUserId, message, accepted));
+    const submitMeetingReq = () => {
+        dispatch(sendMeetingReq(sendUserId, recUserId, message, accepted));
     };
 
     return (

@@ -8,6 +8,9 @@ class Meeting(db.Model):
   recUserId = db.Column(db.Integer, db.ForeignKey('users.id'))
   message = db.Column(db.String(500), nullable = False)
   accepted = db.Column(db.Boolean, nullable = False)
+  sendingUser = db.relationship("User", foreign_keys = [sendUserId], back_populates = "sentMeetings")
+  receivingUser = db.relationship("User", foreign_keys = [recUserId], back_populates = "receivedMeetings")
+  
 
 
   def to_dict(self):
