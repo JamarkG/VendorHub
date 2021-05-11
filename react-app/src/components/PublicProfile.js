@@ -10,8 +10,6 @@ const PublicProfile = (oneProfile) => {
     const [modalRendering, setModalRendering] = useState(false);
 
     const profile = oneProfile.oneProfile
-    // console.log('proooofffffiiiillllleeeeeee', profile)
-
 
     Modal.setAppElement('#root');
 
@@ -68,7 +66,7 @@ const PublicProfile = (oneProfile) => {
                               WebkitOverflowScrolling: "touch",
                               borderRadius: "4px",
                               outline: "none",
-                              padding: "20px",
+                              padding: "10px",
                               boxShadow: "inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 2px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3)"
                             }
                           }}

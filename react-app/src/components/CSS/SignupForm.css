@@ -1,16 +1,26 @@
 
-.inputDiv {
+.signupFormInputDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 14px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
     font-family: Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
-.textInput {
+.signupTextInput {
     border: .2px solid rgb(216, 216, 216);
     border-radius: 4px;
+}
+
+.signupSummaryInput {
+    min-height: 55px;
+    border: .2px solid rgb(216, 216, 216);
+    border-radius: 4px;
+}
+
+.signupInputLabel {
+    font-size: 13px;
 }
 
 #signUpButton {
@@ -19,3 +29,14 @@
     background-color: rgb(5, 224, 42);
     padding: 5px 14px 5px 14px;
 }
+
+#topSignupDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #vhLogo {
+    padding: 0px 0px 0px 33px;
+} */
