@@ -71,7 +71,7 @@ const Search = () => {
                         id='searchInput'
                         onChange={handleSearchChange}
                     />
-                    <button type="submit" id='searchButton'>Search</button>
+                    {/* <button type="submit" id='searchButton'>Search</button> */}
                 </form>
             </div>
             <div id='profilesDiv'>

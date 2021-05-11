@@ -23,17 +23,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 9px 0px 3px 0px;
 }
 
 h4, .meetingMessage {
     font-size: 12px;
-    margin: 3px 0px 1px 0px;
+    margin: 5px 0px 1px 0px;
     padding: 0px
 }
 
 .acceptedBoolText {
     font-size: 12px;
-    margin: 0px;
+    margin: 0px 0px 3px 0px;
     padding: 0px
 }
 
@@ -42,7 +43,7 @@ h4, .meetingMessage {
     max-height: 100%;
     overflow: scroll;
     margin: 0px 10px 0px 10px;
-
+    padding: 0px 40px 0px 20px;
 }
 
 .inputDiv {
@@ -85,11 +86,15 @@ h4, .meetingMessage {
     height: 100%;
     max-height: 100%;
     overflow: scroll;
-    padding: 0px 40px 0px 40px;
+    padding: 0px 20px 0px 40px;
+    border-right: .5px solid rgb(211, 211, 211);
 
 }
 
-
+.oneMeetingDiv {
+    /* margin: 4px 0px 0px 0px; */
+    padding: 10px 0px 0px 0px;
+}
 
 .LogoutButtonDiv {
     display: flex;

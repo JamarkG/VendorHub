@@ -101,7 +101,7 @@ export const updateProfile = (name, companyName, isVendor, summary, emailAddress
 }
 
 export const sendMeetingReq = (sendUserId, recUserId, message, accepted) => async ()=> {
-    console.log(sendUserId, recUserId, message, accepted)
+    // console.log(sendUserId, recUserId, message, accepted)
     const response = await fetch("/api/users/sendMeetingReq", {
         method: "POST",
         headers: {
@@ -114,7 +114,7 @@ export const sendMeetingReq = (sendUserId, recUserId, message, accepted) => asyn
             accepted
         }),
     });
-    debugger
+    // debugger
     const data = await response.json();
     return "success";
 };

@@ -34,7 +34,7 @@ const PublicProfile = (oneProfile) => {
                     <h3>{profile.companyName}</h3>
                     <h5>{profile.name}</h5>
                     <p id='vendorTag'><em>{vendorBooltoString(profile.isVendor)}</em></p>
-                    <p>{profile.summary}</p>
+                    <p id='profSummary'>{profile.summary}</p>
                     <button onClick={setModalRenderingTrue} id='reqMeetingButton'>Request meeting</button>
                     <Modal
                         isOpen={modalRendering}
