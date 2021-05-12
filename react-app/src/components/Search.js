@@ -8,22 +8,12 @@ import './CSS/Search.css'
 const Search = () => {
 
     const user = useSelector(state => state.session.user);
-    // const userType = user.isVendor;
     const userId = user.id;
 
     const [profiles, setProfiles] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
-    // const [modalRendering, setModalRendering] = useState(false);
 
-    // Modal.setAppElement('#root');
-
-    // const setModalRenderingTrue = () => {
-    //     setModalRendering(true)
-    // };
-    // const setModalRenderingFalse = () => {
-    //     setModalRendering(false)
-    // };
 
     let userCount = 0;
 
@@ -36,8 +26,6 @@ const Search = () => {
             const profObj = await response.json();
             const userArr = profObj.users;
             userCount = userArr.length;
-            console.log(userCount)
-        //   console.log(userArr)
           setProfiles(userArr);
           setSearchResults(userArr);
         };

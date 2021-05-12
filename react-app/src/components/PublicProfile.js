@@ -37,8 +37,6 @@ const PublicProfile = (oneProfile) => {
                     <Modal
                         isOpen={modalRendering}
                         onRequestClose={setModalRenderingFalse}
-                        // overlayClassName='modalHolder'
-                        // parentSelector={() => document.querySelector('#root')}
                         style={
                           {
                             overlay: {

@@ -32,7 +32,6 @@ const LandingPage = () => {
                         <Modal
                         isOpen={modalRendering}
                         onRequestClose={setModalRenderingFalse}
-                        // overlayClassName='modalHolder'
                         parentSelector={() => document.querySelector('#root')}
                         style={
                             { overlay: {

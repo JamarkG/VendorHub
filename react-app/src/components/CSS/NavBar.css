@@ -28,8 +28,7 @@
     margin: 0px 0px 0px 0px;
     align-items: center;
     justify-content: center;
-    /* color: black; */
-    /* text-decoration: black; */
+
 }
 
 .AuthButton {
@@ -38,8 +37,6 @@
     margin: 0px 0px 0px 0px;
     display: flex;
     flex-direction: row;
-
-    /* text-decoration-thickness: 2px; */
 }
 
 .inputLabel {

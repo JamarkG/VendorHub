@@ -120,7 +120,6 @@ const NavBar = () => {
                 bottom: "40px",
                 border: "1px solid #ccc",
                 background: "#fff",
-                // overflow: "auto",
                 WebkitOverflowScrolling: "touch",
                 borderRadius: "4px",
                 outline: "none",
