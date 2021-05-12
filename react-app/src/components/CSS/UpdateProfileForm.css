@@ -118,3 +118,32 @@
     /* margin: 4px 0px 0px 0px; */
     padding: 6px 0px 0px 0px;
 }
+
+#acceptedButtonDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.acceptMeetingButton {
+    width: 22px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(5, 224, 42);
+    border: none;
+    border-radius: 4px;
+}
+
+.denyMeetingButton {
+    width: 22px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(252, 41, 59);
+    border: none;
+    border-radius: 4px;
+}

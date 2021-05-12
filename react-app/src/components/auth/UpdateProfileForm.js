@@ -77,8 +77,8 @@ const UpdateProfileForm = () => {
                         {receivedMeeting.accepted && <p id='acceptedMeeting'><em>Congrats! Meeting accepted.</em></p>}
                         <div>
                             {!receivedMeeting.accepted && <div id='acceptedButtonDiv'>
-                                <button onClick={acceptMeeting} value={receivedMeeting.id} className='acceptedBoolText'>Accept</button>
-                                <button className='acceptedBoolText'>Deny</button>
+                                <button onClick={acceptMeeting} value={receivedMeeting.id} className='acceptMeetingButton'>✔</button>
+                                <button className='denyMeetingButton'>✖</button>
                             </div>
                             }
                         </div>
