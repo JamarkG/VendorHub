@@ -7,7 +7,6 @@ import '../CSS/SignupForm.css';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
-  // const user = useSelector(state => state.session.user);
 
   const [name, setName] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -20,7 +19,6 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      console.log(isVendor)
       await dispatch(signUp(name, companyName, isVendor, summary, emailAddress, password));
     }
   };
@@ -56,8 +54,6 @@ const SignUpForm = () => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
-
-  // console.log(isVendor)
 
   return (
     <div id='topSignupDiv'>

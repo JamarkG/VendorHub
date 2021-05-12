@@ -75,9 +75,7 @@ export const signUp = (name, companyName, isVendor, summary, emailAddress, passw
             password
         }),
     });
-    // console.log('responseeeeeeeeee', response)
     const data = await response.json();
-    // console.log('dataaaaaaaaaaaa', data);
     dispatch(setUser(data));
 }
 
@@ -101,7 +99,6 @@ export const updateProfile = (name, companyName, isVendor, summary, emailAddress
 }
 
 export const sendMeetingReq = (sendUserId, recUserId, message, accepted) => async ()=> {
-    // console.log(sendUserId, recUserId, message, accepted)
     const response = await fetch("/api/users/sendMeetingReq", {
         method: "POST",
         headers: {
@@ -114,10 +111,25 @@ export const sendMeetingReq = (sendUserId, recUserId, message, accepted) => asyn
             accepted
         }),
     });
-    // debugger
     const data = await response.json();
     return "success";
 };
+
+export const changeMeetingReq = (accepted, id) => async (dispatch)=> {
+    const response = await fetch("/api/auth/updatemeeting", {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            accepted,
+            id
+        }),
+    });
+    const data = await response.json();
+    dispatch(setUser(data));
+}
+
 
 // reducer
 
