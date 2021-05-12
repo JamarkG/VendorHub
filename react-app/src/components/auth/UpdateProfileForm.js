@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from 'react-router-dom';
-import { updateProfile } from '../../store/session';
+import { updateProfile, changeMeetingReq } from '../../store/session';
 import LogoutButton from './LogoutButton';
 import '../CSS/UpdateProfileForm.css';
 
@@ -9,8 +8,6 @@ import '../CSS/UpdateProfileForm.css';
 const UpdateProfileForm = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    // const meetings = user.meetings
-    console.log(user)
 
     const [name, setName] = useState(user.name);
     const [companyName, setCompanyName] = useState(user.companyName);
@@ -20,12 +17,19 @@ const UpdateProfileForm = () => {
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
 
-    const onUpdate = async (e) => {
+    const onUpdate = (e) => {
         e.preventDefault();
         if (password === repeatPassword) {
-            await dispatch(updateProfile(name, companyName, isVendor, summary, emailAddress, password));
+            dispatch(updateProfile(name, companyName, isVendor, summary, emailAddress, password));
         }
     };
+
+    const acceptMeeting = async (e) => {
+        e.preventDefault()
+        let accepted = true
+        let id = e.target.value
+        dispatch(changeMeetingReq(accepted, id))
+    }
 
     const vendorBooltoString = (bool) => {
         if (bool){ return 'Vendor' }
@@ -71,7 +75,13 @@ const UpdateProfileForm = () => {
                         <h4 className='meetingMessage'>{receivedMeeting.message}</h4>
                         {/* <p>{sentMeeting.name}</p> */}
                         {receivedMeeting.accepted && <p id='acceptedMeeting'><em>Congrats! Meeting accepted.</em></p>}
-                        {!receivedMeeting.accepted && <p className='acceptedBoolText'><em>Waiting to be accepted.</em></p>}
+                        <div>
+                            {!receivedMeeting.accepted && <div id='acceptedButtonDiv'>
+                                <button onClick={acceptMeeting} value={receivedMeeting.id} className='acceptedBoolText'>Accept</button>
+                                <button className='acceptedBoolText'>Deny</button>
+                            </div>
+                            }
+                        </div>
                     </div>
                 ))}
                 <h5 className='typeRequestLabel'>Sent Requests</h5>

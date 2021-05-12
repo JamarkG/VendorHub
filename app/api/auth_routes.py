@@ -108,6 +108,24 @@ def update_profile():
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+@auth_routes.route('/updatemeeting', methods=['PATCH'])
+def update_meeting():
+    """
+    Updates a meeting accepted status and keeps user logged in
+    """
+    data = request.get_json()
+    meetingId = data.get('id')
+    print(meetingId)
+    newStatus = data.get('accepted')
+    print(newStatus)
+    meeting = Meeting.query.filter(Meeting.id == meetingId).first()
+    meeting.accepted = newStatus
+
+    db.session.commit()
+    id = current_user.id
+    user = User.query.filter(User.id == id).first()
+    return user.to_dict()
+
 @auth_routes.route('/unauthorized')
 def unauthorized():
     """

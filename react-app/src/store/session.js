@@ -115,6 +115,22 @@ export const sendMeetingReq = (sendUserId, recUserId, message, accepted) => asyn
     return "success";
 };
 
+export const changeMeetingReq = (accepted, id) => async (dispatch)=> {
+    const response = await fetch("/api/auth/updatemeeting", {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            accepted,
+            id
+        }),
+    });
+    const data = await response.json();
+    dispatch(setUser(data));
+}
+
+
 // reducer
 
 const initialState = { user: null };
