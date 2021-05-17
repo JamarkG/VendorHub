@@ -93,6 +93,7 @@ def update_profile():
     """
     form = UpdateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print(form['csrf_token'].data, request.cookies['csrf_token'])
     if form.validate_on_submit():
         id = current_user.id
         user = User.query.filter(User.id == id).first()

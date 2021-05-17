@@ -8,7 +8,7 @@ const MeetingForm = (props) =>{
     const user = useSelector(state => state.session.user);
     const sendUserId = user.id;
     const recUserId = props.recUserId;
-    const accepted = false;
+    const accepted = null;
     const recName = props.recName;
     const recCompanyName = props.recCompanyName;
     const setModalRendering = props.setModalRendering

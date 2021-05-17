@@ -14,7 +14,7 @@ def seed_meetings():
                 sendUserId=2,
                 recUserId=7,
                 message='This looks so cool, I want to see a demo for our retail side!',
-                accepted=True
+                accepted=None
     )
 
     demoMeet3 = Meeting(
@@ -28,7 +28,7 @@ def seed_meetings():
                 sendUserId=4,
                 recUserId=9,
                 message='Could we meet with you and see this live?',
-                accepted=False
+                accepted=None
     )
 
     demoMeet5 = Meeting(
