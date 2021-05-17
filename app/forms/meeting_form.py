@@ -27,4 +27,4 @@ class MeetingForm(FlaskForm):
     message = StringField('message', validators=[DataRequired()])
     sendUserId = IntegerField('sendUserId', validators=[DataRequired()])
     recUserId = IntegerField('sendUserId', validators=[DataRequired()])
-    accepted = BooleanField('accepted', validators=[DataRequired()])
+    accepted = BooleanField('accepted')

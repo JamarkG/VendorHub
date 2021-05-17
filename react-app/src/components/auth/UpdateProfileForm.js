@@ -12,6 +12,7 @@ const UpdateProfileForm = () => {
     const [name, setName] = useState(user.name);
     const [companyName, setCompanyName] = useState(user.companyName);
     const [isVendor, setIsVendor] = useState(user.isVendor);
+    // console.log(isVendor)
     const [summary, setSummary] = useState(user.summary);
     const [emailAddress, setEmailAddress] = useState(user.emailAddress);
     const [password, setPassword] = useState("");
@@ -24,9 +25,16 @@ const UpdateProfileForm = () => {
         }
     };
 
-    const acceptMeeting = async (e) => {
+    const acceptMeeting = (e) => {
         e.preventDefault()
         let accepted = true
+        let id = e.target.value
+        dispatch(changeMeetingReq(accepted, id))
+    }
+
+    const declineMeeting = (e) => {
+        e.preventDefault()
+        let accepted = false
         let id = e.target.value
         dispatch(changeMeetingReq(accepted, id))
     }
@@ -64,6 +72,8 @@ const UpdateProfileForm = () => {
         setRepeatPassword(e.target.value);
     };
 
+    console.log(user.receivedMeetings)
+
     return (
     <div id='topUpdateDiv'>
         <div id='updateProfileDiv'>
@@ -75,10 +85,11 @@ const UpdateProfileForm = () => {
                         <h4 className='meetingMessage'>{receivedMeeting.message}</h4>
                         {/* <p>{sentMeeting.name}</p> */}
                         {receivedMeeting.accepted && <p id='acceptedMeeting'><em>Congrats! Meeting accepted.</em></p>}
+                        {receivedMeeting.accepted == false && <p id='acceptedMeeting'><em>Meeting declined.</em></p>}
                         <div>
-                            {!receivedMeeting.accepted && <div id='acceptedButtonDiv'>
+                            {receivedMeeting.accepted == null && <div id='acceptedButtonDiv'>
                                 <button onClick={acceptMeeting} value={receivedMeeting.id} className='acceptMeetingButton'>✔</button>
-                                <button className='denyMeetingButton'>✖</button>
+                                <button onClick={declineMeeting} value={receivedMeeting.id}  className='denyMeetingButton'>✖</button>
                             </div>
                             }
                         </div>

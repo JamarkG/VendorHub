@@ -35,9 +35,10 @@ def send_meeting_req():
         sendUserId=form.data['sendUserId'],
         recUserId=form.data['recUserId'],
         message=form.data['message'],
-        accepted=False
+        accepted=None
     )
     db.session.add(meeting)
     db.session.commit()
-    return meeting.to_dict()
+    user = User.query.get(current_user.id)
+    return user.to_dict()
     # return {'errors': validation_errors_to_error_messages(form.errors)}, 401

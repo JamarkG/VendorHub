@@ -60,7 +60,7 @@ export const logout = () => async (dispatch) => {
 
 
 export const signUp = (name, companyName, isVendor, summary, emailAddress, password) => async (dispatch)=> {
-    console.log(isVendor)
+    // console.log(isVendor)
     const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: {
@@ -98,7 +98,7 @@ export const updateProfile = (name, companyName, isVendor, summary, emailAddress
     dispatch(setUser(data));
 }
 
-export const sendMeetingReq = (sendUserId, recUserId, message, accepted) => async ()=> {
+export const sendMeetingReq = (sendUserId, recUserId, message, accepted) => async (dispatch)=> {
     const response = await fetch("/api/users/sendMeetingReq", {
         method: "POST",
         headers: {
@@ -112,6 +112,7 @@ export const sendMeetingReq = (sendUserId, recUserId, message, accepted) => asyn
         }),
     });
     const data = await response.json();
+    dispatch(setUser(data));
     return "success";
 };
 
@@ -127,6 +128,7 @@ export const changeMeetingReq = (accepted, id) => async (dispatch)=> {
         }),
     });
     const data = await response.json();
+    console.log(data)
     dispatch(setUser(data));
 }
 
