@@ -128,7 +128,7 @@ export const changeMeetingReq = (accepted, id) => async (dispatch)=> {
         }),
     });
     const data = await response.json();
-    console.log(data)
+    // console.log(data)
     dispatch(setUser(data));
 }
 

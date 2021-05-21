@@ -29,7 +29,7 @@ const MeetingForm = (props) =>{
     return (
         <div id='formDiv'>
             <form id='meetingReqForm'>
-                <h3 id='meetingReqHeader'>Meeting Request</h3>
+                <h3 id='meetingReqHeader'>Send a Meeting Request to:</h3>
                 <h5 id='recipName'><em>{recCompanyName}</em></h5>
                 <p id='recipCompanyName'>{recName}</p>
                 <textarea
