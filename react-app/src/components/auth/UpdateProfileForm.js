@@ -5,9 +5,11 @@ import LogoutButton from './LogoutButton';
 import '../CSS/UpdateProfileForm.css';
 
 
-const UpdateProfileForm = () => {
+const UpdateProfileForm = (props) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
+
+    const setMyProfileModalRendering = props.setMyProfileModalRendering
 
     const [name, setName] = useState(user.name);
     const [companyName, setCompanyName] = useState(user.companyName);
@@ -16,13 +18,14 @@ const UpdateProfileForm = () => {
     const [summary, setSummary] = useState(user.summary);
     const [emailAddress, setEmailAddress] = useState(user.emailAddress);
     const [password, setPassword] = useState("");
-    const [repeatPassword, setRepeatPassword] = useState("");
+    // const [repeatPassword, setRepeatPassword] = useState("");
 
     const onUpdate = (e) => {
         e.preventDefault();
-        if (password === repeatPassword) {
+        // if (password === repeatPassword) {
             dispatch(updateProfile(name, companyName, isVendor, summary, emailAddress, password));
-        }
+            setMyProfileModalRendering(false)
+        // }
     };
 
     const acceptMeeting = (e) => {
@@ -68,11 +71,11 @@ const UpdateProfileForm = () => {
         setPassword(e.target.value);
     };
 
-    const updateRepeatPassword = (e) => {
-        setRepeatPassword(e.target.value);
-    };
+    // const updateRepeatPassword = (e) => {
+    //     setRepeatPassword(e.target.value);
+    // };
 
-    console.log(user.receivedMeetings)
+    // console.log(user.receivedMeetings)
 
     return (
     <div id='topUpdateDiv'>
@@ -161,7 +164,7 @@ const UpdateProfileForm = () => {
                     ></input>
                 </div>
                 <div className='inputDiv'>
-                    <label className='inputDivLabel'>Password</label>
+                    <label className='inputDivLabel'>Confirm Password</label>
                     <input
                     type="password"
                     name="password"
@@ -170,7 +173,7 @@ const UpdateProfileForm = () => {
                     className='updateInput'
                     ></input>
                 </div>
-                <div className='inputDiv'>
+                {/* <div className='inputDiv'>
                     <label className='inputDivLabel'>Repeat Password</label>
                     <input
                     type="password"
@@ -180,7 +183,7 @@ const UpdateProfileForm = () => {
                     required={true}
                     className='updateInput'
                     ></input>
-                </div>
+                </div> */}
                 <div className='inputDiv'>
                     <button type="submit" id='updateProfButton'>Update my profile</button>
                 </div>

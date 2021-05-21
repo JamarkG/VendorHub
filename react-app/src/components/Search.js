@@ -39,9 +39,10 @@ const Search = () => {
 
     useEffect(() => {
         let results = profiles.filter(profile =>
-            profile.name.toLowerCase().includes(searchTerm) ||
-            profile.companyName.toLowerCase().includes(searchTerm) ||
-            profile.summary.toLowerCase().includes(searchTerm)
+            profile.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            profile.companyName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            profile.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            profile.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
 
         setSearchResults(results);
@@ -55,7 +56,7 @@ const Search = () => {
                     <input
                         type="text"
                         value={searchTerm}
-                        placeholder="  Search the database"
+                        placeholder="  Search names or descriptions"
                         id='searchInput'
                         onChange={handleSearchChange}
                     />

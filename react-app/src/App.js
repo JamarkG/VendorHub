@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
+import Footer from "./components/Footer";
 import User from "./components/User";
 import LandingPage from "./components/LandingPage";
 import Search from "./components/Search"
@@ -56,6 +57,7 @@ function App() {
         <Route path="/" exact={true}>
           {userBoolFlip(user) && <LandingPage />}
           {userBool(user) && <Search />}
+          {userBool(user) && <Footer />}
         </Route>
       </Switch>
     </BrowserRouter>

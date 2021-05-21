@@ -92,7 +92,7 @@ const NavBar = () => {
         <div className='AuthDiv'>
           <div>
             <button onClick={setMyProfileModalRenderingTrue} style={{ textDecoration: 'none' }} id='myProfileButton'>
-              Profile
+              My Profile
             </button>
             <Modal
             isOpen={myProfileModalRendering}
@@ -127,7 +127,7 @@ const NavBar = () => {
                 boxShadow: "inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 2px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3)"
               }
             }}>
-                <UpdateProfileForm />
+                <UpdateProfileForm setMyProfileModalRendering={setMyProfileModalRendering} />
             </Modal>
           </div>
         </div>}
