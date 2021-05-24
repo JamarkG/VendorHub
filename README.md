@@ -3,14 +3,26 @@
 
 ## Project Overview
 
-VendorHub is a tool for connecting business service buyers with business service providers. Vendors ans buyers can create a profile, search for prospective leads, and write a message to request a meeting, and deny/accept incoming meeting requests.
+[VendorHub](https://vendorhub.herokuapp.com/) is a tool for connecting business service buyers with business service providers. Vendors ans buyers can create a profile, search for prospective leads, and write a message to request a meeting, and deny/accept incoming meeting requests.
 
-The app is designed for **simplicity**, by utilizing React and Redux Vendorhub is a single-page application utilizing modals through a 3rd-party package called react-modals.
+The app is designed for **simplicity**, and is a single-page application utilizing modals through a 3rd-party package called react-modals.
 
 The app is meant capture a dashboard-like unified view of the core functionality and provide the user a seamless feel of moving through the functionality.
 
+### Technologies
+- React.js
+- Redux
+- Javascript
+- Python
+- Flask
+- SQL Alchemy
+- HTML
+- CSS
+- postgreSQL
+- Heroku
+- react-modal
 
-### MVP Features
+### Features
 - User Authentication
 - Update User Profile
 - Send Meeting Request with message
