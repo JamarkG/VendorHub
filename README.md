@@ -3,7 +3,7 @@
 
 ## Project Overview
 
-[VendorHub](https://vendorhub.herokuapp.com/) is a tool for connecting business service buyers with business service providers. Vendors ans buyers can create a profile, search for prospective leads, and write a message to request a meeting, and deny/accept incoming meeting requests.
+[VendorHub](https://vendorhub.herokuapp.com/) is a tool for connecting business service buyers with business service providers. Vendors and buyers can create a profile, search for prospective leads, and write a message to request a meeting, and deny/accept incoming meeting requests.
 
 The app is designed for **simplicity**, and is a single-page application utilizing modals through a 3rd-party package called react-modals.
 
