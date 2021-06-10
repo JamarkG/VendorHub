@@ -24,6 +24,7 @@ const LandingPage = () => {
                 <img src={background} id='imgHolder' alt='VendorHub Background'></img>
                 <div id='landingTextButton'>
                     <h3>Simplify your vendor discovery</h3>
+                    <p id='introText'>Find the services and software that will take your business to the next level.</p>
                     <div>
                         <button onClick={setModalRenderingTrue} style={{ textDecoration: 'none' }} id='tryButton'>
                             <p id='tryButtonP'>Try it free</p>
@@ -31,7 +32,6 @@ const LandingPage = () => {
                         <Modal
                         isOpen={modalRendering}
                         onRequestClose={setModalRenderingFalse}
-                        // overlayClassName='modalHolder'
                         parentSelector={() => document.querySelector('#root')}
                         style={
                             { overlay: {
@@ -59,7 +59,7 @@ const LandingPage = () => {
                               WebkitOverflowScrolling: "touch",
                               borderRadius: "4px",
                               outline: "none",
-                              padding: "20px",
+                              padding: "8px 20px 20px 20px",
                               boxShadow: "inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 2px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3)"
                             }
                           }}>

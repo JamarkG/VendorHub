@@ -8,12 +8,11 @@ const MeetingForm = (props) =>{
     const user = useSelector(state => state.session.user);
     const sendUserId = user.id;
     const recUserId = props.recUserId;
-    const accepted = false;
-
+    const accepted = null;
     const recName = props.recName;
     const recCompanyName = props.recCompanyName;
+    const setModalRendering = props.setModalRendering
 
-    console.log('heeeeeeeeeres props', props)
 
     const [message, setMessage] = useState("");
 
@@ -21,15 +20,16 @@ const MeetingForm = (props) =>{
         setMessage(e.target.value);
     };
 
-    const submitMeetingReq = async () => {
-        // e.preventDefault();
-        await dispatch(sendMeetingReq(sendUserId, recUserId, message, accepted));
+    const submitMeetingReq = (e) => {
+        e.preventDefault()
+        dispatch(sendMeetingReq(sendUserId, recUserId, message, accepted));
+        setModalRendering(false)
     };
 
     return (
         <div id='formDiv'>
             <form id='meetingReqForm'>
-                <h3 id='meetingReqHeader'>Meeting Request</h3>
+                <h3 id='meetingReqHeader'>Send a Meeting Request to:</h3>
                 <h5 id='recipName'><em>{recCompanyName}</em></h5>
                 <p id='recipCompanyName'>{recName}</p>
                 <textarea

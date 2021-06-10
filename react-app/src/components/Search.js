@@ -8,22 +8,12 @@ import './CSS/Search.css'
 const Search = () => {
 
     const user = useSelector(state => state.session.user);
-    // const userType = user.isVendor;
     const userId = user.id;
 
     const [profiles, setProfiles] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
-    // const [modalRendering, setModalRendering] = useState(false);
 
-    // Modal.setAppElement('#root');
-
-    // const setModalRenderingTrue = () => {
-    //     setModalRendering(true)
-    // };
-    // const setModalRenderingFalse = () => {
-    //     setModalRendering(false)
-    // };
 
     let userCount = 0;
 
@@ -36,8 +26,6 @@ const Search = () => {
             const profObj = await response.json();
             const userArr = profObj.users;
             userCount = userArr.length;
-            console.log(userCount)
-        //   console.log(userArr)
           setProfiles(userArr);
           setSearchResults(userArr);
         };
@@ -45,21 +33,16 @@ const Search = () => {
     }, []);
 
 
-    // const vendorBooltoString = (bool) => {
-    //     if (bool){ return 'Vendor' }
-    //     else { return 'Buyer' }
-    // };
-
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value)
     };
 
-
     useEffect(() => {
         let results = profiles.filter(profile =>
-            profile.name.toLowerCase().includes(searchTerm) ||
-            profile.companyName.toLowerCase().includes(searchTerm) ||
-            profile.summary.toLowerCase().includes(searchTerm)
+            profile.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            profile.companyName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            profile.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            profile.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
 
         setSearchResults(results);
@@ -73,15 +56,15 @@ const Search = () => {
                     <input
                         type="text"
                         value={searchTerm}
-                        placeholder="  Search the database"
+                        placeholder="  Search names or descriptions"
                         id='searchInput'
                         onChange={handleSearchChange}
                     />
-                    <button type="submit" id='searchButton'>Search</button>
+                    {/* <button type="submit" id='searchButton'>Search</button> */}
                 </form>
             </div>
             <div id='profilesDiv'>
-            {searchResults.map((profile, i) => (  // removed index i as arg
+            {searchResults.map((profile, i) => (
                 <PublicProfile oneProfile={profile} key={i} />
             ))}
             </div>

@@ -5,26 +5,47 @@ def seed_meetings():
 
     demoMeet1 = Meeting(
                 sendUserId=1,
-                recUserId=2,
+                recUserId=6,
                 message='I would love to meet with you about a potential partnership',
                 accepted=True
     )
 
     demoMeet2 = Meeting(
-                sendUserId=3,
-                recUserId=2,
-                message='This looks so cool, I want a demo!',
-                accepted=True
+                sendUserId=2,
+                recUserId=7,
+                message='This looks so cool, I want to see a demo for our retail side!',
+                accepted=None
     )
 
     demoMeet3 = Meeting(
-                sendUserId=2,
-                recUserId=3,
-                message='You need us!',
+                sendUserId=3,
+                recUserId=8,
+                message='I am interested in discussing a partnership',
                 accepted=False
     )
 
-    userSeedList = [demoMeet1, demoMeet2, demoMeet3]
+    demoMeet4 = Meeting(
+                sendUserId=4,
+                recUserId=9,
+                message='Could we meet with you and see this live?',
+                accepted=None
+    )
+
+    demoMeet5 = Meeting(
+                sendUserId=1,
+                recUserId=7,
+                message='This could be a good fit for us, how much do you charge?',
+                accepted=False
+    )
+
+    demoMeet6 = Meeting(
+                sendUserId=2,
+                recUserId=6,
+                message='Would be great to meet at your earliest convenience.',
+                accepted=True
+    )
+
+    userSeedList = [demoMeet1, demoMeet2, demoMeet3, demoMeet4, demoMeet5, demoMeet6]
 
     db.session.add_all(userSeedList)
 

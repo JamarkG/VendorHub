@@ -3,3 +3,7 @@ body {
     margin: 0px 0px 0px 0px;
     font-family: Proxima Nova,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
+
+button:hover {
+    cursor: pointer;
+}

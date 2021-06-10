@@ -18,7 +18,7 @@ def password_matches(form, field):
 class UpdateForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
     companyName = StringField('companyName', validators=[DataRequired()])
-    isVendor = BooleanField('isVendor', validators=[DataRequired()])
+    isVendor = BooleanField('isVendor')
     summary = StringField('summary', validators=[DataRequired()])
     emailAddress = StringField('emailAddress', validators=[DataRequired()])
     password = StringField('password', validators=[DataRequired()])

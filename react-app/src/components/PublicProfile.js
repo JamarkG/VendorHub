@@ -10,8 +10,6 @@ const PublicProfile = (oneProfile) => {
     const [modalRendering, setModalRendering] = useState(false);
 
     const profile = oneProfile.oneProfile
-    // console.log('proooofffffiiiillllleeeeeee', profile)
-
 
     Modal.setAppElement('#root');
 
@@ -34,13 +32,11 @@ const PublicProfile = (oneProfile) => {
                     <h3>{profile.companyName}</h3>
                     <h5>{profile.name}</h5>
                     <p id='vendorTag'><em>{vendorBooltoString(profile.isVendor)}</em></p>
-                    <p>{profile.summary}</p>
+                    <p id='profSummary'>{profile.summary}</p>
                     <button onClick={setModalRenderingTrue} id='reqMeetingButton'>Request meeting</button>
                     <Modal
                         isOpen={modalRendering}
                         onRequestClose={setModalRenderingFalse}
-                        // overlayClassName='modalHolder'
-                        // parentSelector={() => document.querySelector('#root')}
                         style={
                           {
                             overlay: {
@@ -68,12 +64,12 @@ const PublicProfile = (oneProfile) => {
                               WebkitOverflowScrolling: "touch",
                               borderRadius: "4px",
                               outline: "none",
-                              padding: "20px",
+                              padding: "10px",
                               boxShadow: "inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 2px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3)"
                             }
                           }}
                           >
-                        <MeetingForm recUserId={profile.id} recName={profile.name} recCompanyName={profile.companyName} />
+                        <MeetingForm recUserId={profile.id} recName={profile.name} recCompanyName={profile.companyName} setModalRendering={setModalRendering} />
                     </Modal>
                 </div>
     )

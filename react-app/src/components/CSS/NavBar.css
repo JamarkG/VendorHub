@@ -27,8 +27,7 @@
     margin: 0px 0px 0px 0px;
     align-items: center;
     justify-content: center;
-    /* color: black; */
-    /* text-decoration: black; */
+
 }
 
 .AuthButton {
@@ -37,7 +36,10 @@
     margin: 0px 0px 0px 0px;
     display: flex;
     flex-direction: row;
-    /* text-decoration-thickness: 2px; */
+}
+
+.inputLabel {
+    font-size: 14px;
 }
 
 #LoginLink {
@@ -46,6 +48,8 @@
     letter-spacing: .3px;
     border: none;
     background-color: white;
+    font-size: 15px;
+
 }
 
 #myProfileButton {
@@ -54,4 +58,6 @@
     letter-spacing: .3px;
     border: none;
     background-color: white;
+    font-size: 15px;
+
 }
