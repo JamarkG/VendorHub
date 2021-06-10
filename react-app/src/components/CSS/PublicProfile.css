@@ -38,8 +38,10 @@ p {
 
 #reqMeetingButton {
     margin: 28px 0px 0px 0px;
-    background-color:rgb(42, 177, 71);
-    border: 1px solid rgb(39, 163, 66);
+    background-color:rgb(21, 129, 44);
+    /* border: 1px solid rgb(21, 129, 44); */
+    border: none;
+    /* with white text and rgb(21, 129, 44) the contrast ratio is 4.99 */
     border-radius: 7px;
     padding: 4px 10px 4px 10px;
     color: white;
