@@ -13,9 +13,9 @@ const Footer = () => {
                     Meet the Developer
                 </div>
                 <div className="myInfo">
-                    <div id='email' className='infoBox'>
+                    {/* <div id='email' className='infoBox'>
                         MarkGregory19@Gmail.com
-                    </div>
+                    </div> */}
                     <div id='linkedIn' className='infoBox'>
                         <a href='https://www.linkedin.com/in/markgregory19' target="_blank">
                             <img
